@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [RouterOutlet],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'My Spotify App';
-    constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
-    ngOnInit(): void {
-        const code = this.getQueryParameter('code');
-        if (code) {
-            this.authService.handleCallback(code);
-        }
+  ngOnInit(): void {
+    const code = this.getQueryParameter('code');
+    if (code) {
+      this.authService.handleCallback(code);
     }
+  }
 
-    private getQueryParameter(name: string): string | null {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
+  private getQueryParameter(name: string): string | null {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
 }

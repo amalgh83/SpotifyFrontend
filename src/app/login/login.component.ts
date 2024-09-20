@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
+    standalone: true,
+    imports: [ReactiveFormsModule, FormsModule],
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
