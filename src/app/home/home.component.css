@@ -1,0 +1,23 @@
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .card:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+  

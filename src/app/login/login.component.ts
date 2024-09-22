@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     standalone: true,
-    imports: [ReactiveFormsModule, FormsModule],
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.css'],
+    imports: [CommonModule, FormsModule] 
 })
 export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-      // Here you would typically authenticate the user with your own backend
-      // For Spotify, we redirect to their OAuth flow
-      this.authService.login();
+    this.authService.initiateLogin();
   }
 }

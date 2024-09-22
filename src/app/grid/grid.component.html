@@ -1,0 +1,27 @@
+<div class="maincontainer">
+<div class="grid-header">
+    <input
+      type="text"
+      placeholder="Search albums or songs..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      class="search-input"
+    />
+  </div>
+  
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let item of pagedItems">
+      <app-card [images]="item.images || []" (click)="openModal(item.images)"></app-card>
+      <h3>{{ item.Name }}</h3>
+      <p *ngIf="item.type === 'album'">{{ item.artistName.join(', ') }}</p>
+      <p class="link" *ngIf="item.type === 'album'" (click)="viewsongs(item)">View Songs</p>
+    </div>
+    
+  </div>
+  
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>

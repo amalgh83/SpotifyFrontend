@@ -1,0 +1,45 @@
+/* Basic styling for the card and modal */
+.card {
+    display: inline-block;
+  }
+  
+  .thumbnail {
+    width: 100px; /* Adjust based on your layout */
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    max-width: 80%;
+    text-align: center;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
